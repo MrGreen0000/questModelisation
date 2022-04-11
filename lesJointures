@@ -1,0 +1,47 @@
+Retourne les noms, prénoms, rôle et équipe de tous les joueurs, 
+lassés dans l’ordre alphabétique par équipe, puis par rôle dans l’équipe,
+puis par nom de famille, puis par prénom :
+
+
+drop table wirad;
+SELECT wizard.firstname, wizard.lastname, team.`name`,player.`role`
+FROM player
+INNER JOIN wizard ON wizard.id=player.wizard_id
+inner join team on team.id=player.team_id;
+
+SELECT wizard.firstname, wizard.lastname, team.`name`,player.`role`
+FROM player
+INNER JOIN wizard ON wizard.id=player.wizard_id
+inner join team on team.id=player.team_id
+ORDER BY `name`ASC;
+
+SELECT wizard.firstname, wizard.lastname, team.`name`,player.`role`
+FROM player
+INNER JOIN wizard ON wizard.id=player.wizard_id
+inner join team on team.id=player.team_id
+ORDER BY `role`ASC;
+
+SELECT wizard.firstname, wizard.lastname, team.`name`,player.`role`
+FROM player
+INNER JOIN wizard ON wizard.id=player.wizard_id
+inner join team on team.id=player.team_id
+ORDER BY lastname ASC;
+
+SELECT wizard.firstname, wizard.lastname, team.`name`,player.`role`
+FROM player
+INNER JOIN wizard ON wizard.id=player.wizard_id
+inner join team on team.id=player.team_id
+ORDER BY firstname ASC;
+
+Retourne uniquement les prénoms et noms des joueurs ayant le rôle de seeker (attrapeur), 
+classés par ordre alphabétique de nom puis prénom :
+
+SELECT wizard.firstname, wizard.lastname, player.`role`
+FROM player
+INNER JOIN wizard ON wizard.id=player.wizard_id 
+WHERE `role`='seeker'
+ORDER BY lastname, firstname ASC;
+
+Retourne la liste de tous les sorciers qui ne pratiquent pas le quidditch :
+
+je n'ai pas trouvé la solution.
