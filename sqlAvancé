@@ -1,0 +1,18 @@
+
+
+    Retourne le nom des équipes et le nombre de joueurs par équipe, le tout classé par nombre de joueurs par équipe,
+    de la plus nombreuse à la moins nombreuse :
+    
+    SELECT team.name, COUNT(*) as nb_player_team FROM player inner join team on team.id=player.team_id group by team.id;
+
+    Retourne uniquement les noms des équipes complètes (ayant 14 joueurs ou plus, 
+    c’est-à- dire 7 joueurs et 7 remplaçants minimum), classés par ordre alphabétique :
+    
+    SELECT team.name FROM player inner join team on team.id=player.team_id GROUP BY team.id HAVING COUNT(team.name) > 14 order by team.name asc;
+    
+
+    L’entraîneur des Gryffindor est superstitieux, son jour préféré est le lundi. 
+    Retourne la liste des joueurs de son équipe qui ont été enrôlés un lundi (il souhaite les faire jouer en priorité), 
+    et classe les résultats par date d’enrôlement chronologique :
+    
+    SELECT team.name FROM player inner join team on team.id=player.team_id GROUP BY team.id  , DATE_FORMAT( player.`enrollment_date`, "%u ") order by team.name asc ;
